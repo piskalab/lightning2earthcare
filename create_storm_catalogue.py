@@ -199,7 +199,7 @@ def process_one_file(path_nc: Path) -> pd.DataFrame:
 
             records.append(dict(
                 unique_id                 = f"{orbit_frame}_{source}_{int(cid)}",
-                orbit_frame               = orbit_frame,
+                earthcare_id              = orbit_frame,
                 source                    = source,
                 parent_cluster_id         = par_cluster_id[0],
                 cluster_id                = int(cid),
@@ -245,14 +245,14 @@ def main():
 
     catalogue = pd.concat(all_frames, ignore_index=True)
     catalogue = catalogue.sort_values(
-        by=["orbit_frame", "parent_cluster_id", "cluster_id"],
+        by=["earthcare_id", "parent_cluster_id", "cluster_id"],
         kind="mergesort"
     ).reset_index(drop=True)
 
     # --- metadata ---
     field_descriptions = {
-        "unique_id":            "Unique identifier of the lightning cluster (orbit_frame + source + cluster_id)",
-        "orbit_frame":          "Orbit/frame identifier of the EarthCARE overpass",
+        "unique_id":            "Unique identifier of the lightning cluster (earthcare_id + source + cluster_id)",
+        "earthcare_id":         "Orbit/frame identifier of the EarthCARE overpass",
         "source":               "Lightning data source: LI (MTG) or GLM (GOES)",
         "parent_cluster_id":    "Parent lightning cluster identifier",
         "cluster_id":           "Lightning cluster identifier",
