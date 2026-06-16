@@ -13,7 +13,7 @@ logger = logging.getLogger(__name__)
 
 
 CATALOG_URL = "https://catalog.maap.eo.esa.int/catalogue/"
-COLLECTION = "EarthCAREL2Products_MAAP"
+COLLECTION = "EarthCAREL2Validated_MAAP"
 ASSET_KEY = "enclosure_h5"
 
 
